@@ -18,7 +18,7 @@ public class HolaMundoServlet extends HttpServlet {
 
 	public void doGet (HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		HttpSession session = request.getSession();
-		
+			
 		String nombre = (String) request.getParameter("NombreUsuario");
 		Vector listado = (Vector) session.getAttribute("listado");
 		Integer contador = (Integer) getServletContext().getAttribute("contador");
