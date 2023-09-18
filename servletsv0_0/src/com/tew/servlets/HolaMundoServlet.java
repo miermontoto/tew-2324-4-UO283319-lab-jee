@@ -25,6 +25,10 @@ public class HolaMundoServlet extends HttpServlet {
 		Vector listado = (Vector) session.getAttribute("listado");
 		if (listado == null) listado = new Vector();
 		
+		Integer contador = (Integer) getServletContext().getAttribute("contador");
+		if (contador == null) contador = new Integer(0);
+		getServletContext().setAttribute("contador", new Integer(contador.intValue() + 1));
+		
 		out.println("<HTML>");
 		out.println("<HEAD><TITLE>Hola Mundo!</TITLE></HEAD>");
 		out.println("<BODY>");
@@ -36,12 +40,19 @@ public class HolaMundoServlet extends HttpServlet {
 		session.setAttribute("listado", listado);
 		
 		out.println("Bienvenido a mi primera página web!");
-		out.println("<br><br>Contigo, hoy me han visitado:");
-		for(int i = 0; i < listado.size(); i++) {
-			out.println("<br>" + listado.get(i).toString());
+		
+		if(listado.size() == 0) {
+			out.println("<br><br>Eres la primera persona en visitar esta página!");
+		} else {
+			out.println("<br><br>Contigo, hoy me han visitado:");
+			for(int i = 0; i < listado.size(); i++) {
+				out.println("<br> - " + listado.get(i).toString());
+			}
 		}
 		
-		out.println("<br><br><a href=\"index.html\">Volver</a>");
+		
+		out.println("<br><br>Visitas: " + contador);
+		out.println("<br><a href=\"index.html\">Volver</a>");
 		out.println("</BODY></HTML>");
 	}
 
