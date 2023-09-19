@@ -18,21 +18,21 @@ public class HolaMundoServlet extends HttpServlet {
 
 	public void doGet (HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		HttpSession session = request.getSession();
-			
+
 		String nombre = (String) request.getParameter("NombreUsuario");
 		Vector listado = (Vector) session.getAttribute("listado");
 		Integer contador = (Integer) getServletContext().getAttribute("contador");
-		
+
 		if (listado == null) listado = new Vector();
-		
+
 		if (contador == null) contador = new Integer(0);
 		getServletContext().setAttribute("contador", new Integer(contador.intValue() + 1));
-		
+
 		if (nombre != null) {
 			listado.addElement(nombre);
 		}
 		session.setAttribute("listado", listado);
-		
+
 		RequestDispatcher dispatcher = getServletContext().getNamedDispatcher("HolaMundoVista");
 		dispatcher.forward(request, response);
 	}
