@@ -1,4 +1,4 @@
-package com.tew.servlets;
+package tew.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
