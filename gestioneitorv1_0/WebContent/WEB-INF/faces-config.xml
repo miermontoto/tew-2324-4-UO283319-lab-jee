@@ -15,6 +15,10 @@
             <from-outcome>alta</from-outcome>
             <to-view-id>/altaForm.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>edit</from-outcome>
+            <to-view-id>/altaForm.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>*</from-view-id>
