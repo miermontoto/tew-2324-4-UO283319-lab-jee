@@ -95,4 +95,20 @@ public class BeanAlumnos implements Serializable {
 			return "error";
 		}
 	}
+
+	public Alumno getAlumno() {
+		return alumno;
+	}
+
+	public void setAlumno(Alumno alumno) {
+		this.alumno = alumno;
+	}
+
+	public Alumno[] getAlumnos() {
+		return alumnos;
+	}
+
+	public void setAlumnos(Alumno[] alumnos) {
+		this.alumnos = alumnos;
+	}
 }
