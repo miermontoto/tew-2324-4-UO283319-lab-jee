@@ -1,2 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16961774377650" configfile="/gestioneitorv1_0/WebContent/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16961774377650" configfile="/gestioneitorv1_0/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="122" y="279" id="pf16961789186221" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf16961789186222 pf16961789186223 pf16961789186224" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="listado.xhtml" x="554" y="380" id="pf16961789186225" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf16961789186226 pf16961789186227" inlinks="pf16961789186222 pf16961789186228 pf16961789186226" path="/listado.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="altaForm.xhtml" x="338" y="178" id="pf16961789186229" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf16961789186228" inlinks="pf16961789186223 pf16961789186224 pf16961789186227" path="/altaForm.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="663" id="pf169617891862210" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf169617891862211" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="error.xhtml" x="338" y="663" id="pf169617891862212" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf169617891862211" path="/error.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="editForm.xhtml" x="770" y="380" id="pf169617891862213" referenceLink="//@navigationRule.3/@navigationCase.1/@toViewId|" path="/editForm.xhtml"/>
+  <links id="pf16961789186222" target="pf16961789186225" source="pf16961789186221" outcome="exito" fromaction="#{controller.listado}"/>
+  <links id="pf16961789186223" target="pf16961789186229" source="pf16961789186221" outcome="alta"/>
+  <links id="pf16961789186224" target="pf16961789186229" source="pf16961789186221" outcome="edit"/>
+  <links id="pf169617891862211" target="pf169617891862212" source="pf169617891862210" outcome="error"/>
+  <links id="pf16961789186228" target="pf16961789186225" source="pf16961789186229" outcome="exito" fromaction="#{controller.salva}"/>
+  <links id="pf16961789186227" target="pf16961789186229" source="pf16961789186225" outcome="editar"/>
+  <links id="pf16961789186226" target="pf16961789186225" source="pf16961789186225" outcome="exito" fromaction="#{controller.baja}">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+</pageflow:Pageflow>
