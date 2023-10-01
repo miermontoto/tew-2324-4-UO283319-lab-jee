@@ -6,7 +6,6 @@ import com.tew.business.AlumnosService;
 import com.tew.infrastructure.Factories;
 import com.tew.model.Alumno;
 
-@ManagedBean
 @SessionScoped
 public class BeanAlumnos implements Serializable {
 	private static final long serialVersionUID = 55555L;
@@ -72,6 +71,22 @@ public class BeanAlumnos implements Serializable {
 			} else {
 				service.updateAlumno(alumno);
 			}
+			// Actualizamos el javabean de alumnos inyectado en la tabla
+			alumnos = (Alumno []) service.getAlumnos().toArray(new Alumno[0]);
+			return "exito";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
+	}
+
+	public String baja() {
+		AlumnosService service;
+		try {
+			// Acceso a la implementacion de la capa de negocio
+			// a través de la factoría
+			service = Factories.services.createAlumnosService();
+			service.deleteAlumno(alumno.getId());
 			// Actualizamos el javabean de alumnos inyectado en la tabla
 			alumnos = (Alumno []) service.getAlumnos().toArray(new Alumno[0]);
 			return "exito";
