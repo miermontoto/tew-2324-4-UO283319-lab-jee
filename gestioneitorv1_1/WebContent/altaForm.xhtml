@@ -1,24 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-       xmlns:f="http://java.sun.com/jsf/core">
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:p="http://primefaces.org/ui">
+<f:view locale="#{settings.locale}">
 <h:head>
-<title>Cabecera</title>
+	<title>#{msgs.tituloOperacionAlta}</title>
 </h:head>
 <h:body>
 
 <h:form>
-<h:panelGrid columns="2">
-	NOMBRE: <h:inputText value="#{controller.alumno.nombre}"/>
-	APELLIDOS: <h:inputText value="#{controller.alumno.apellidos}"/>
-	USERID: <h:inputText value="#{controller.alumno.iduser}"/>
-	EMAIL: <h:inputText value="#{controller.alumno.email}"/>
-</h:panelGrid>
-	<h:commandButton value="Salvar" action="#{controller.salva}"/>
+	<h:panelGrid columns="2">
+		#{msgs.nombre}: <h:inputText value="#{controller.alumno.nombre}"/>
+		#{msgs.apellidos}: <h:inputText value="#{controller.alumno.apellidos}"/>
+		#{msgs.userid}: <h:inputText value="#{controller.alumno.iduser}"/>
+		#{msgs.correo}: <h:inputText value="#{controller.alumno.email}"/>
+	</h:panelGrid>
+	<h:commandButton value="#{msgs.botonSalvar}" action="#{controller.salva}"/>
 	<br></br>
-	<h:commandLink value="Volver" action="index"/>
+	<h:commandLink value="#{msgs.enlaceAtras}" action="volver"/>
 </h:form>
 
 </h:body>
+</f:view>
 </html>

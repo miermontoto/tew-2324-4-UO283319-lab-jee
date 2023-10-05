@@ -4,8 +4,9 @@
   xmlns:h="http://java.sun.com/jsf/html"
   xmlns:f="http://java.sun.com/jsf/core"
   xmlns:p="http://primefaces.org/ui">
+<f:view locale="#{settings.locale}">
 <h:head>
-<title>Cabecera</title>
+  <title>#{msgs.tituloOperacionEdicion}</title>
 </h:head>
 <h:body>
 
@@ -19,9 +20,9 @@
 </h:panelGrid>
   <h:commandButton value="Salvar" action="#{controller.salva}"/>
   <br></br>
-	<h:commandLink value="Volver" action="index"/>
+	<h:commandLink value="#{msgs.enlaceAtras}" action="volver"/>
 </h:form>
 
-
 </h:body>
+</f:view>
 </html>

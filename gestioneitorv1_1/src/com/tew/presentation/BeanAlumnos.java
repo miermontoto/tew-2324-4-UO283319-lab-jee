@@ -1,6 +1,9 @@
 package com.tew.presentation;
 import java.io.Serializable;
+import java.util.ResourceBundle;
+
 import javax.faces.bean.*;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import com.tew.business.AlumnosService;
 import com.tew.infrastructure.Factories;
@@ -22,11 +25,12 @@ public class BeanAlumnos implements Serializable {
 	}
 
 	public void iniciaAlumno(ActionEvent event) {
+		ResourceBundle bundle = FacesContext.getCurrentInstance().getApplication().getResourceBundle(FacesContext.getCurrentInstance(), "msgs");
 		alumno.setId(null);
-		alumno.setIduser("IdUser");
-		alumno.setNombre("Nombre");
-		alumno.setApellidos("Apellidos");
-		alumno.setEmail("email@domain.com");
+		alumno.setIduser(bundle.getString("valorDefectoUserId"));
+		alumno.setNombre(bundle.getString("valorDefectoNombre"));
+		alumno.setApellidos(bundle.getString("valorDefectoApellidos"));
+		alumno.setEmail(bundle.getString("valorDefectoCorreo"));
 	}
 
 	public String listado() {
