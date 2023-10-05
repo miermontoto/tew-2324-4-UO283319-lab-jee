@@ -9,15 +9,16 @@
 </h:head>
 <h:body>
 
-
+<h:form>
 <p:menubar>
   <p:menuitem value="Gestioneitorv2.1"> </p:menuitem>
   <p:submenu label="Gestion de alumnos">
+    <p:menuitem value="Listado" action="#{controller.listado}"></p:menuitem>
     <p:menuitem value="Alta" action="alta" actionListener="#{controller.iniciaAlumno}"></p:menuitem>
-    <p:menuitem value="Listado Alumnos" action="#{controller.listado}"></p:menuitem>
+    <p:menuitem value="Edicion" action="edit" actionListener="#{controller.iniciaAlumno}"></p:menuitem>
   </p:submenu>
 </p:menubar>
-
+</h:form>
 
 </h:body>
 </html>
