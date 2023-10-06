@@ -29,12 +29,11 @@ public class BeanAlumno extends Alumno implements Serializable {
 	//extraídos del archivo de propiedades correspondiente
 	public void iniciaAlumno(ActionEvent event) {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
-		ResourceBundle bundle =
-		facesContext.getApplication().getResourceBundle(facesContext, "msgs");
-		setId(null);
-		setIduser(bundle.getString("valorDefectoUserId"));
-		setNombre(bundle.getString("valorDefectoNombre"));
-		setApellidos(bundle.getString(" valorDefectoApellidos"));
-		setEmail(bundle.getString("valorDefectoCorreo"));
+		ResourceBundle bundle = facesContext.getApplication().getResourceBundle(facesContext, "msgs");
+		this.setId(null);
+		this.setIduser(bundle.getString("valorDefectoUserId"));
+		this.setNombre(bundle.getString("valorDefectoNombre"));
+		this.setApellidos(bundle.getString("valorDefectoApellidos"));
+		this.setEmail(bundle.getString("valorDefectoCorreo"));
 	}
 }

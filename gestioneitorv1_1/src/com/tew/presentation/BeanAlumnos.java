@@ -2,6 +2,8 @@ package com.tew.presentation;
 import java.io.Serializable;
 import java.util.ResourceBundle;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.faces.bean.*;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -121,14 +123,6 @@ public class BeanAlumnos implements Serializable {
 			e.printStackTrace();
 			return "error";
 		}
-	}
-
-	public Alumno getAlumno() {
-		return alumno;
-	}
-
-	public void setAlumno(Alumno alumno) {
-		this.alumno = alumno;
 	}
 
 	public Alumno[] getAlumnos() {
