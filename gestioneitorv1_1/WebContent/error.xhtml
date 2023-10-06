@@ -10,19 +10,27 @@
 </h:head>
 <h:body>
 
-<h1>Error!</h1>
-<h:form>
-  <p:menubar>
-    <p:menuitem value="#{msgs.tituloAplicacion1}"> </p:menuitem>
+  <h:form>
+    <p:menubar>
+      <p:menuitem value="#{msgs.tituloAplicacion1}"> </p:menuitem>
 
-    <f:facet name="options">
-      <h:commandLink value="#{msgs.enlaceIdiomaES}" actionListener="#{settings.setSpanish}"> </h:commandLink>
-      <span>    </span>
-      <h:commandLink value="#{msgs.enlaceIdiomaEN}" actionListener="#{settings.setEnglish}"> </h:commandLink>
-    </f:facet>
-  </p:menubar>
-  <h:commandLink value="#{msgs.enlaceAtras}" action="index"/>
-</h:form>
+      <f:facet name="options">
+        <h:commandLink value="#{msgs.enlaceIdiomaES}" actionListener="#{settings.setSpanish}"> </h:commandLink>
+        <span>    </span>
+        <h:commandLink value="#{msgs.enlaceIdiomaEN}" actionListener="#{settings.setEnglish}"> </h:commandLink>
+      </f:facet>
+    </p:menubar>
+
+    <h:commandLink value="#{msgs.enlaceAtras}" action="index"/>
+  </h:form>
+
+<h1>Error!</h1>
+<!-- mostrar información del error a partir del managed bean "berror" -->
+<p>Vista: <h:outputText value="#{controller.error.view}" escape="false"></h:outputText></p>
+<p>Método: <h:outputText value="#{controller.error.method}" escape="false"></h:outputText></p>
+<p>Clase: <h:outputText value="#{controller.error.clase}" escape="false"></h:outputText></p>
+<p>Mensaje: <h:outputText value="#{controller.error.message}" escape="false"></h:outputText></p>
+
 
 </h:body>
 </f:view>

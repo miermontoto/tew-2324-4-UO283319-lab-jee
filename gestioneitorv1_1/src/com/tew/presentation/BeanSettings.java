@@ -21,11 +21,22 @@ public class BeanSettings implements Serializable {
 	@ManagedProperty(value="#{alumno}")
 	private BeanAlumno alumno;
 
+	@ManagedProperty(value="#{berror}")
+	private BGError error;
+
 	public void setAlumno(Alumno alumno) {
 		this.alumno = (BeanAlumno) alumno;
 	}
 	public BeanAlumno getAlumno(){
 		return this.alumno;
+	}
+
+	public void setError(BGError error) {
+		this.error = error;
+	}
+
+	public BGError getError(){
+		return this.error;
 	}
 
 	//Se inicia correctamente el Managed Bean inyectado si JSF lo hubiera creado
@@ -37,12 +48,20 @@ public class BeanSettings implements Serializable {
 	public void init() {
 		System.out.println("BeanSettings - PostConstruct");
 		// Buscamos el alumno en la sesión. Esto es un patrón factoría claramente.
-		alumno = (BeanAlumno)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(new String("alumno"));
+		alumno = (BeanAlumno) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(new String("alumno"));
 		// si no existe lo creamos e inicializamos
 		if (alumno == null) {
 			System.out.println("BeanSettings - No existia");
 			alumno = new BeanAlumno();
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("alumno", alumno);
+		}
+
+		// Se busca error en la request
+		error = (BGError) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(new String("error"));
+		if (error == null) {
+			System.out.println("BeanSettings - No existia");
+			error = new BGError();
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("error", error);
 		}
 	}
 
@@ -62,8 +81,11 @@ public class BeanSettings implements Serializable {
 			if (alumno != null)
 				if (alumno.getId()== null) //valores por defecto del alumno, si no NO inicializar
 					alumno.iniciaAlumno(null);
-		} catch (Exception ex){
-			ex.printStackTrace();
+		} catch (Exception ex) {
+			getError().setView("");
+			getError().setMethod("setSpanish");
+			getError().setClase(this.getClass().getName());
+			getError().setMessage(ex.getMessage());
 		}
 	}
 
@@ -75,7 +97,10 @@ public class BeanSettings implements Serializable {
 				if (alumno.getId()== null) //valores por defecto del alumno, si no NO inicializar
 					alumno.iniciaAlumno(null);
 		} catch (Exception ex){
-			ex.printStackTrace();
+			getError().setView("");
+			getError().setMethod("setEnglish");
+			getError().setClase(this.getClass().getName());
+			getError().setMessage(ex.getMessage());
 		}
 	}
 }

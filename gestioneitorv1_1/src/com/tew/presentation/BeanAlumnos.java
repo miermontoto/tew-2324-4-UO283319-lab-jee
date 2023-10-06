@@ -17,6 +17,10 @@ public class BeanAlumnos implements Serializable {
 
 	@ManagedProperty(value="#{alumno}")
 	private BeanAlumno alumno;
+
+	@ManagedProperty(value="#{berror}")
+	private BGError error;
+
 	private Alumno[] alumnos = null;
 
 	public void setAlumno(Alumno alumno) {
@@ -24,6 +28,14 @@ public class BeanAlumnos implements Serializable {
 	}
 	public BeanAlumno getAlumno(){
 		return this.alumno;
+	}
+
+	public void setError(BGError error) {
+		this.error = error;
+	}
+
+	public BGError getError(){
+		return this.error;
 	}
 
 	//Se inicia correctamente el MBean inyectado si JSF lo hubiera crea
@@ -34,13 +46,19 @@ public class BeanAlumnos implements Serializable {
 	public void init() {
 		System.out.println("BeanAlumnos - PostConstruct");
 		//Buscamos el alumno en la sesión. Esto es un patrón factoría claramente.
-		alumno = (BeanAlumno)
-		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(new String("alumno"));
+		alumno = (BeanAlumno) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(new String("alumno"));
 		//si no existe lo creamos e inicializamos
 		if (alumno == null) {
 			System.out.println("BeanAlumnos - No existia");
 			alumno = new BeanAlumno();
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("alumno", alumno);
+		}
+
+		error = (BGError) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(new String("error"));
+
+		if (error == null) {
+			error = new BGError();
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("error", error);
 		}
 	}
 
@@ -68,7 +86,10 @@ public class BeanAlumnos implements Serializable {
 			alumnos = (Alumno []) service.getAlumnos().toArray(new Alumno[0]);
 			return "exito";
 		} catch (Exception e) {
-			e.printStackTrace();
+			getError().setView(FacesContext.getCurrentInstance().getViewRoot().getViewId());
+			getError().setMethod("listado");
+			getError().setClase(getClass().getName());
+			getError().setMessage(e.getMessage());
 			return "error";
 		}
 	}
@@ -83,7 +104,10 @@ public class BeanAlumnos implements Serializable {
 			alumno = (BeanAlumno) service.findById(alumno.getId());
 			return "exito";
 		} catch (Exception e) {
-			e.printStackTrace();
+			getError().setView(FacesContext.getCurrentInstance().getViewRoot().getViewId());
+			getError().setMethod("edit");
+			getError().setClase(getClass().getName());
+			getError().setMessage(e.getMessage());
 			return "error";
 		}
 	}
@@ -104,7 +128,10 @@ public class BeanAlumnos implements Serializable {
 			alumnos = (Alumno []) service.getAlumnos().toArray(new Alumno[0]);
 			return "exito";
 		} catch (Exception e) {
-			e.printStackTrace();
+			getError().setView(FacesContext.getCurrentInstance().getViewRoot().getViewId());
+			getError().setMethod("salva");
+			getError().setClase(getClass().getName());
+			getError().setMessage(e.getMessage());
 			return "error";
 		}
 	}
@@ -120,7 +147,10 @@ public class BeanAlumnos implements Serializable {
 			alumnos = (Alumno []) service.getAlumnos().toArray(new Alumno[0]);
 			return "exito";
 		} catch (Exception e) {
-			e.printStackTrace();
+			getError().setView(FacesContext.getCurrentInstance().getViewRoot().getViewId());
+			getError().setMethod("baja");
+			getError().setClase(getClass().getName());
+			getError().setMessage(e.getMessage());
 			return "error";
 		}
 	}
