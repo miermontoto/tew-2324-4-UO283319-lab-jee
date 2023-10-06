@@ -1,36 +1,87 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:h="http://java.sun.com/jsf/html"
-  xmlns:f="http://java.sun.com/jsf/core"
-  xmlns:p="http://primefaces.org/ui">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <f:view locale="#{settings.locale}">
-<h:head>
-	<title>#{msgs.tituloOperacionAlta}</title>
-</h:head>
-<h:body>
+	<h:head>
+		<title>#{msgs.tituloOperacionAlta}</title>
+	</h:head>
+	<h:body>
 
-<h:form>
-	<p:menubar>
-		<p:menuitem value="#{msgs.tituloAplicacion1}"> </p:menuitem>
+		<h:form>
+			<p:menubar>
+				<p:menuitem value="#{msgs.tituloAplicacion1}">
+				</p:menuitem>
 
-		<f:facet name="options">
-			<h:commandLink value="#{msgs.enlaceIdiomaES}" actionListener="#{settings.setSpanish}"> </h:commandLink>
-			<span>    </span>
-			<h:commandLink value="#{msgs.enlaceIdiomaEN}" actionListener="#{settings.setEnglish}"> </h:commandLink>
-		</f:facet>
-	</p:menubar>
-	<h:panelGrid columns="2">
-		#{msgs.nombre}: <h:inputText value="#{controller.alumno.nombre}"/>
-		#{msgs.apellidos}: <h:inputText value="#{controller.alumno.apellidos}"/>
-		#{msgs.userid}: <h:inputText value="#{controller.alumno.iduser}"/>
-		#{msgs.correo}: <h:inputText value="#{controller.alumno.email}"/>
-	</h:panelGrid>
-	<h:commandButton value="#{msgs.botonSalvar}" action="#{controller.salva}"/>
-	<br></br>
-	<h:commandLink value="#{msgs.enlaceAtras}" action="index"/>
-</h:form>
+				<f:facet name="options">
+					<h:commandLink value="#{msgs.enlaceIdiomaES}"
+						actionListener="#{settings.setSpanish}">
+					</h:commandLink>
+					<span> </span>
+					<h:commandLink value="#{msgs.enlaceIdiomaEN}"
+						actionListener="#{settings.setEnglish}">
+					</h:commandLink>
+				</f:facet>
+			</p:menubar>
+			<p:panelGrid columns="2" styleClass="formTable">
+				#{msgs.nombre}
+				<h:panelGroup>
+					<p:inputText value="#{alumno.nombre}" required="true"
+						requiredMessage="#{msgs.formAlta_nombre_requiredMessage}"
+						validatorMessage="#{msgs.formAlta_nombre_validatorMessage}"
+						id="nombre">
+						<f:validateLength maximum="20" />
+					</p:inputText>
+					<p:message for="nombre" />
+				</h:panelGroup>
+				#{msgs.apellidos}
+				<h:panelGroup>
+					<p:inputText value="#{alumno.apellidos}" required="true"
+						requiredMessage="#{msgs.formAlta_apellidos_requiredMessage}"
+						validatorMessage="#{msgs.formAlta_apellidos_validatorMessage}"
+						id="apellidos">
+						<f:validateLength maximum="40" />
+					</p:inputText>
+					<p:message for="apellidos" />
+				</h:panelGroup>
+				#{msgs.userid}
+				<h:panelGroup>
+					<p:inputText value="#{alumno.iduser}" required="true"
+						requiredMessage="#{msgs.formAlta_iduser_requiredMessage}"
+						validatorMessage="#{msgs.formAlta_iduser_validatorMessage}"
+						id="iduser">
+						<f:validateLength minimum="5" maximum="8" />
+						<h:commandButton value="#{msgs.botonSalvar}"
+							action="#{controller.salva}" />
+						<br></br>
+						<h:commandLink value="#{msgs.enlaceAtras}" action="index" />
+						UNIVERSIDAD DE OVIEDO
+						GIITIN – Tecnologías Web – Curso 2023 / 2024
+						Sesión 5 de Laboratorio – JSF 2.2 (Validación, Templates
+						y Snippets)
+						-3-
+					</p:inputText>
+					<p:message for="iduser"/>
+				</h:panelGroup>
+				#{msgs.correo}
+				<h:panelGroup>
+					<p:inputText value="#{alumno.email}"
+					required="true"
+					requiredMessage="#{msgs.formAlta_correo_requiredMessage}"
+					validatorMessage="#{msgs.formAlta_correo_validatorMessage}"
+					id="correo">
+						<f:validateRegex pattern=".+@.+\.[a-z]+"/>
+					</p:inputText>
+					<p:message for="correo"/>
+				</h:panelGroup>
+				</p:panelGrid>
+				<h:commandButton value="#{msgs.botonSalvar}"
+					action="#{controller.salva}">
+				</h:commandButton>
+		</h:form>
 
-</h:body>
+	</h:body>
 </f:view>
 </html>

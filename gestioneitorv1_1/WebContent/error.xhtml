@@ -1,37 +1,54 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:h="http://java.sun.com/jsf/html"
-  xmlns:f="http://java.sun.com/jsf/core"
-  xmlns:p="http://primefaces.org/ui">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <f:view locale="#{settings.locale}">
-<h:head>
-  <title>#{msgs.tituloOperacionError}</title>
-</h:head>
-<h:body>
+	<h:head>
+		<title>#{msgs.tituloOperacionError}</title>
+	</h:head>
+	<h:body>
 
-  <h:form>
-    <p:menubar>
-      <p:menuitem value="#{msgs.tituloAplicacion1}"> </p:menuitem>
+		<h:form>
+			<p:menubar>
+				<p:menuitem value="#{msgs.tituloAplicacion1}">
+				</p:menuitem>
 
-      <f:facet name="options">
-        <h:commandLink value="#{msgs.enlaceIdiomaES}" actionListener="#{settings.setSpanish}"> </h:commandLink>
-        <span>    </span>
-        <h:commandLink value="#{msgs.enlaceIdiomaEN}" actionListener="#{settings.setEnglish}"> </h:commandLink>
-      </f:facet>
-    </p:menubar>
+				<f:facet name="options">
+					<h:commandLink value="#{msgs.enlaceIdiomaES}"
+						actionListener="#{settings.setSpanish}">
+					</h:commandLink>
+					<span> </span>
+					<h:commandLink value="#{msgs.enlaceIdiomaEN}"
+						actionListener="#{settings.setEnglish}">
+					</h:commandLink>
+				</f:facet>
+			</p:menubar>
 
-    <h:commandLink value="#{msgs.enlaceAtras}" action="index"/>
-  </h:form>
+			<h:commandLink value="#{msgs.enlaceAtras}" action="index" />
+		</h:form>
 
-<h1>Error!</h1>
-<!-- mostrar información del error a partir del managed bean "berror" -->
-<p>Vista: <h:outputText value="#{controller.error.view}" escape="false"></h:outputText></p>
-<p>Método: <h:outputText value="#{controller.error.method}" escape="false"></h:outputText></p>
-<p>Clase: <h:outputText value="#{controller.error.clase}" escape="false"></h:outputText></p>
-<p>Mensaje: <h:outputText value="#{controller.error.message}" escape="false"></h:outputText></p>
+		<h1>Error!</h1>
+		<!-- mostrar información del error a partir del managed bean "berror" -->
+		<p>
+			Vista:
+			<h:outputText value="#{controller.error.view}" escape="false"></h:outputText>
+		</p>
+		<p>
+			Método:
+			<h:outputText value="#{controller.error.method}" escape="false"></h:outputText>
+		</p>
+		<p>
+			Clase:
+			<h:outputText value="#{controller.error.clase}" escape="false"></h:outputText>
+		</p>
+		<p>
+			Mensaje:
+			<h:outputText value="#{controller.error.message}" escape="false"></h:outputText>
+		</p>
 
 
-</h:body>
+	</h:body>
 </f:view>
 </html>
