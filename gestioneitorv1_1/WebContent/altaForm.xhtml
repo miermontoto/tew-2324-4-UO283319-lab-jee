@@ -11,6 +11,15 @@
 <h:body>
 
 <h:form>
+	<p:menubar>
+		<p:menuitem value="#{msgs.tituloAplicacion1}"> </p:menuitem>
+
+		<f:facet name="options">
+			<h:commandLink value="#{msgs.enlaceIdiomaES}" actionListener="#{settings.setSpanish}"> </h:commandLink>
+			<span>    </span>
+			<h:commandLink value="#{msgs.enlaceIdiomaEN}" actionListener="#{settings.setEnglish}"> </h:commandLink>
+		</f:facet>
+	</p:menubar>
 	<h:panelGrid columns="2">
 		#{msgs.nombre}: <h:inputText value="#{controller.alumno.nombre}"/>
 		#{msgs.apellidos}: <h:inputText value="#{controller.alumno.apellidos}"/>
@@ -19,7 +28,7 @@
 	</h:panelGrid>
 	<h:commandButton value="#{msgs.botonSalvar}" action="#{controller.salva}"/>
 	<br></br>
-	<h:commandLink value="#{msgs.enlaceAtras}" action="volver"/>
+	<h:commandLink value="#{msgs.enlaceAtras}" action="index"/>
 </h:form>
 
 </h:body>
