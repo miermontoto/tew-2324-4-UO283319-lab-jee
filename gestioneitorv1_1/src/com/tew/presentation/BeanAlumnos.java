@@ -13,15 +13,38 @@ import com.tew.model.Alumno;
 public class BeanAlumnos implements Serializable {
 	private static final long serialVersionUID = 55555L;
 
-	// Se añade este atributo de entidad para recibir el alumno concreto seleccionado
-	// de la tabla o de un formulario.
-	// Es necesario inicializarlo para que al entrar desde el formulario de
-	// AltaForm.xhtml se puedan dejar los valores en un objeto existente.
-	private Alumno alumno = new Alumno();
+	@ManagedProperty(value="#{alumno}")
+	private BeanAlumno alumno;
 	private Alumno[] alumnos = null;
 
-	public BeanAlumnos() {
-		iniciaAlumno(null);
+	public void setAlumno(Alumno alumno) {
+		this.alumno = (BeanAlumno) alumno;
+	}
+	public BeanAlumno getAlumno(){
+		return this.alumno;
+	}
+
+	//Se inicia correctamente el MBean inyectado si JSF lo hubiera crea
+	//y en caso contrario se crea. (hay que tener en cuenta que es un Bean de sesión)
+	//Se usa @PostConstruct, ya que en el contructor no se sabe todavía si el Managed Bean
+	//ya estaba construido y en @PostConstruct SI.
+	@PostConstruct
+	public void init() {
+		System.out.println("BeanAlumnos - PostConstruct");
+		//Buscamos el alumno en la sesión. Esto es un patrón factoría claramente.
+		alumno = (BeanAlumno)
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(new String("alumno"));
+		//si no existe lo creamos e inicializamos
+		if (alumno == null) {
+			System.out.println("BeanAlumnos - No existia");
+			alumno = new BeanAlumno();
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("alumno", alumno);
+		}
+	}
+
+	@PreDestroy
+	public void end() {
+		System.out.println("BeanAlumnos - PreDestroy");
 	}
 
 	public void iniciaAlumno(ActionEvent event) {
@@ -55,7 +78,7 @@ public class BeanAlumnos implements Serializable {
 			// a través de la factoría
 			service = Factories.services.createAlumnosService();
 			// Recargamos el alumno en la tabla de la base de datos por si hubiera cambios.
-			alumno = service.findById(alumno.getId());
+			alumno = (BeanAlumno) service.findById(alumno.getId());
 			return "exito";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -84,7 +107,7 @@ public class BeanAlumnos implements Serializable {
 		}
 	}
 
-	public String baja() {
+	public String baja(Alumno alumno) {
 		AlumnosService service;
 		try {
 			// Acceso a la implementacion de la capa de negocio

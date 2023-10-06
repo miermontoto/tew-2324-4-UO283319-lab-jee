@@ -34,7 +34,7 @@ public class BeanAlumno extends Alumno implements Serializable {
 		setId(null);
 		setIduser(bundle.getString("valorDefectoUserId"));
 		setNombre(bundle.getString("valorDefectoNombre"));
-		setApellidos(bundle.getString("valorDefectoApellidos"));
+		setApellidos(bundle.getString(" valorDefectoApellidos"));
 		setEmail(bundle.getString("valorDefectoCorreo"));
 	}
 }
