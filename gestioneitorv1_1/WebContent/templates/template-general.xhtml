@@ -5,7 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-	
+
 <f:view locale="#{settings.locale}">
 	<h:head>
 		<title>#{msgs.tituloHead}</title>
@@ -32,6 +32,14 @@
 					<p:separator />
 					<p:menuitem value="#{msgs.enlaceAlta}" action="alta"
 						actionListener="#{alumno.iniciaAlumno}" />
+					<p:separator />
+					<p:menuitem value="#{msgs.enlaceEditar}" action="edit"
+						actionListener="#{alumno.iniciaAlumno}" />
+				</p:submenu>
+				<p:submenu label="#{msgs.tituloRegistro}" icon="ui-icon-document">
+					<p:menuitem value="#{msgs.tituloOperacionRegistro1}" action="registro1" />
+					<p:separator />
+					<p:menuitem value="#{msgs.tituloOperacionRegistro2}" action="registro2" />
 				</p:submenu>
 				<f:facet name="options">
 					<h:commandLink value="#{msgs.enlaceIdiomaES}"

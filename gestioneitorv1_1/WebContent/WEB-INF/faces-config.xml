@@ -5,22 +5,6 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
     <navigation-rule>
-        <from-view-id>/index.xhtml</from-view-id>
-        <navigation-case>
-            <from-action>#{controller.listado}</from-action>
-            <from-outcome>exito</from-outcome>
-            <to-view-id>/listado.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>alta</from-outcome>
-            <to-view-id>/altaForm.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>edit</from-outcome>
-            <to-view-id>/altaForm.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
         <from-view-id>*</from-view-id>
         <navigation-case>
             <from-outcome>error</from-outcome>
@@ -42,6 +26,14 @@
             <from-outcome>edit</from-outcome>
             <to-view-id>/altaForm.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>registro1</from-outcome>
+            <to-view-id>/registroManual.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>registro2</from-outcome>
+            <to-view-id>/registroJSF.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/altaForm.xhtml</from-view-id>
@@ -52,20 +44,26 @@
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
+        <from-view-id>/registroManual.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>exito</from-outcome>
+            <to-view-id>/exitoRegistro.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/registroJSF.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>exito</from-outcome>
+            <to-view-id>/exitoRegistro.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
         <from-view-id>/listado.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{controller.baja(valumno)}</from-action>
             <from-outcome>exito</from-outcome>
             <to-view-id>/listado.xhtml</to-view-id>
         </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-    	<display-name>listado.xhtml</display-name>
-    	<from-view-id>/listado.xhtml</from-view-id>
-    	<navigation-case>
-    		<from-outcome>editar</from-outcome>
-    		<to-view-id>/altaForm.xhtml</to-view-id>
-    	</navigation-case>
     </navigation-rule>
     <application>
         <resource-bundle>
@@ -86,6 +84,11 @@
     <managed-bean>
         <managed-bean-name>berror</managed-bean-name>
         <managed-bean-class>com.tew.presentation.BGError</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>registro</managed-bean-name>
+        <managed-bean-class>com.tew.presentation.BeanRegistro</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 </faces-config>
