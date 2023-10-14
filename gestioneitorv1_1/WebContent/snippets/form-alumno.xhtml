@@ -4,7 +4,7 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core">
 	<p:panelGrid id="Grid" columns="2" cellpadding="5">
-  #{msgs.nombre} 
+  #{msgs.nombre}
   <h:panelGroup>
 			<p:inputText value="#{alumno.nombre}" required="true"
 				requiredMessage="#{msgs.formAlta_nombre_requiredMessage}"
@@ -14,8 +14,8 @@
 			</p:inputText>
 			<p:message for="nombre" />
 		</h:panelGroup>
-  
-  #{msgs.apellidos} 
+
+  #{msgs.apellidos}
   <h:panelGroup>
 			<p:inputText value="#{alumno.apellidos}" required="true"
 				requiredMessage="#{msgs.formAlta_apellidos_requiredMessage}"
@@ -25,7 +25,7 @@
 			</p:inputText>
 			<p:message for="apellidos" />
 		</h:panelGroup>
-  
+
   #{msgs.userid}
   <h:panelGroup>
 			<p:inputText value="#{alumno.iduser}" required="true"
@@ -35,8 +35,8 @@
 				<f:validateLength minimum="5" maximum="8" />
 			</p:inputText>
 			<p:message for="iduser" />
-		</h:panelGroup>  
-  
+		</h:panelGroup>
+
   #{msgs.correo}
   <h:panelGroup>
 			<p:inputText value="#{alumno.email}" required="true"
@@ -47,8 +47,6 @@
 			</p:inputText>
 			<p:message for="correo" />
 		</h:panelGroup>
-		<h:commandButton value="#{msgs.botonSalvar}"
-			action="#{controller.salva}" update="Grid">
-		</h:commandButton>
+		<p:commandButton value="#{msgs.botonSalvar}" action="#{controller.salva}" update="Grid" process="@form" />
 	</p:panelGrid>
 </ui:composition>
