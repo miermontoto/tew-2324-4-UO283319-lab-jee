@@ -1,7 +1,7 @@
 package com.tew.business;
 
 public interface ServicesFactory {
-	
-	AlumnosService createAlumnosService();
 
+	AlumnosService createAlumnosService();
+	LoginService createLoginService();
 }
