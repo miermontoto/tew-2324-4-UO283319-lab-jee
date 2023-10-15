@@ -12,7 +12,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>casa</from-outcome>
-            <to-view-id>/opciones.xhtml</to-view-id>
+            <to-view-id>/restricted/opciones.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>login</from-outcome>
@@ -20,58 +20,58 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>listado</from-outcome>
-            <to-view-id>/listado.xhtml</to-view-id>
+            <to-view-id>/restricted/listado.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>alta</from-outcome>
-            <to-view-id>/altaForm.xhtml</to-view-id>
+            <to-view-id>/restricted/altaForm.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>edit</from-outcome>
-            <to-view-id>/altaForm.xhtml</to-view-id>
+            <to-view-id>/restricted/altaForm.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>registro1</from-outcome>
-            <to-view-id>/registroManual.xhtml</to-view-id>
+            <to-view-id>/restricted/registroManual.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>registro2</from-outcome>
-            <to-view-id>/registroJSF.xhtml</to-view-id>
+            <to-view-id>/restricted/registroJSF.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{controller.listado}</from-action>
             <from-outcome>exito</from-outcome>
-            <to-view-id>/listado.xhtml</to-view-id>
+            <to-view-id>/restricted/listado.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>/altaForm.xhtml</from-view-id>
+        <from-view-id>/restricted/altaForm.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{controller.salva}</from-action>
             <from-outcome>exito</from-outcome>
-            <to-view-id>/listado.xhtml</to-view-id>
+            <to-view-id>/restricted/listado.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>/registroManual.xhtml</from-view-id>
+        <from-view-id>/restricted/registroManual.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>exito</from-outcome>
-            <to-view-id>/exitoRegistro.xhtml</to-view-id>
+            <to-view-id>/restricted/exitoRegistro.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>/registroJSF.xhtml</from-view-id>
+        <from-view-id>/restricted/registroJSF.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>exito</from-outcome>
-            <to-view-id>/exitoRegistro.xhtml</to-view-id>
+            <to-view-id>/restricted/exitoRegistro.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>/listado.xhtml</from-view-id>
+        <from-view-id>/restricted/listado.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{controller.baja(valumno)}</from-action>
             <from-outcome>exito</from-outcome>
-            <to-view-id>/listado.xhtml</to-view-id>
+            <to-view-id>/restricted/listado.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -79,7 +79,7 @@
         <navigation-case>
             <from-action>#{login.verify}</from-action>
             <from-outcome>success</from-outcome>
-            <to-view-id>/opciones.xhtml</to-view-id>
+            <to-view-id>/restricted/opciones.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <application>
