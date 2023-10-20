@@ -4,6 +4,7 @@ import java.util.ResourceBundle;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.*;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -84,13 +85,13 @@ public class BeanAlumnos implements Serializable {
 			service = Factories.services.createAlumnosService();
 			// Asi le damos información a toArray para poder hacer el casting a Alumno[]
 			alumnos = (Alumno []) service.getAlumnos().toArray(new Alumno[0]);
+			System.out.println("bbb");
 			return "exito";
 		} catch (Exception e) {
-			getError().setView(FacesContext.getCurrentInstance().getViewRoot().getViewId());
-			getError().setMethod("listado");
-			getError().setClase(getClass().getName());
-			getError().setMessage(e.getMessage());
-			return "error";
+			FacesMessage msgs = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error en " + getClass().getName() + ":listado()", null);
+			FacesContext.getCurrentInstance().addMessage("error_sample", msgs);
+			System.out.println("aaa");
+			return "";
 		}
 	}
 
@@ -104,11 +105,9 @@ public class BeanAlumnos implements Serializable {
 			alumno = (BeanAlumno) service.findById(alumno.getId());
 			return "exito";
 		} catch (Exception e) {
-			getError().setView(FacesContext.getCurrentInstance().getViewRoot().getViewId());
-			getError().setMethod("edit");
-			getError().setClase(getClass().getName());
-			getError().setMessage(e.getMessage());
-			return "error";
+			FacesMessage msgs = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error en " + getClass().getName() + ":edit()", null);
+			FacesContext.getCurrentInstance().addMessage("error_sample", msgs);
+			return "";
 		}
 	}
 
@@ -128,11 +127,9 @@ public class BeanAlumnos implements Serializable {
 			alumnos = (Alumno []) service.getAlumnos().toArray(new Alumno[0]);
 			return "exito";
 		} catch (Exception e) {
-			getError().setView(FacesContext.getCurrentInstance().getViewRoot().getViewId());
-			getError().setMethod("salva");
-			getError().setClase(getClass().getName());
-			getError().setMessage(e.getMessage());
-			return "error";
+			FacesMessage msgs = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error en " + getClass().getName() + ":salva()", null);
+			FacesContext.getCurrentInstance().addMessage("error_sample", msgs);
+			return "";
 		}
 	}
 
@@ -147,11 +144,9 @@ public class BeanAlumnos implements Serializable {
 			alumnos = (Alumno []) service.getAlumnos().toArray(new Alumno[0]);
 			return "exito";
 		} catch (Exception e) {
-			getError().setView(FacesContext.getCurrentInstance().getViewRoot().getViewId());
-			getError().setMethod("baja");
-			getError().setClase(getClass().getName());
-			getError().setMessage(e.getMessage());
-			return "error";
+			FacesMessage msgs = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error en " + getClass().getName() + ":baja()", null);
+			FacesContext.getCurrentInstance().addMessage("error_sample", msgs);
+			return "";
 		}
 	}
 
