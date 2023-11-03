@@ -28,7 +28,6 @@ public class Alumno implements Serializable {
 		return nombre;
 	}
 
-	@XmlElement
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
@@ -38,7 +37,6 @@ public class Alumno implements Serializable {
 		return apellidos;
 	}
 
-	@XmlElement
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
@@ -48,7 +46,6 @@ public class Alumno implements Serializable {
 		return iduser;
 	}
 
-	@XmlElement
 	public void setIduser(String iduser) {
 		this.iduser = iduser;
 	}
@@ -58,12 +55,10 @@ public class Alumno implements Serializable {
 		return email;
 	}
 
-	@XmlElement
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	@XmlElement
 	public void setId(Long id) {
 		this.id = id;
 	}
