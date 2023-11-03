@@ -1,0 +1,40 @@
+<html>
+<head>
+	<script type="text/javascript" src="/gestioneitorv4_0/rest-jsapi"></script>
+</head>
+<body>
+	<form action=””>
+		nombre: <input type="text" id="nombre" size=10/> <br/>
+		apellidos: <input type="text" id="apellidos" size=10/> <br/>
+		iduser: <input type="text" id="iduser" size=10/> <br/>
+		email: <input type="text" id="email" size=10/> <br/>
+		Botón submit: <input type="submit" id="boton">
+	</form>
+	<script>
+		document.getElementById("boton").addEventListener("click", function(event){
+			event.preventDefault(); //Previene que al pulsar el botón Submit se intente ejecutar la acción del formulario.
+			// Esto es un ejemplo de acción para que se ven que se puede ejecutar codigo después del preventDetault().
+			document.getElementById("demo").innerHTML += "FECHA/HORA-> "+ Date()+"<br/>";
+			//Este es el valor del campo1
+			var campo1 = document.getElementById("nombre");
+			document.getElementById("demo").innerHTML += "<br>NOMBRE-> "+campo1.value+"<br/>";
+			var campo2 = document.getElementById("apellidos");
+			document.getElementById("demo").innerHTML += "<br>APELLDIOS-> "+campo2.value+"<br/>";
+			var campo3 = document.getElementById("iduser");
+			document.getElementById("demo").innerHTML += "<br>IDUSER-> "+campo3.value+"<br/>";
+			var campo4 = document.getElementById("email");
+			document.getElementById("demo").innerHTML += "<br>EMAIL-> "+campo4.value+"<br/>";
+
+			var alumno = {
+					nombre: campo1.value,
+					apellidos: campo2.value,
+					iduser: campo3.value,
+					email: campo4.value
+			};
+
+			AlumnosServicesRs.saveAlumno({$entity: alumno, $contentType: "application/json"});
+		});
+	</script>
+	<p id="demo"></p>
+</body>
+</html>

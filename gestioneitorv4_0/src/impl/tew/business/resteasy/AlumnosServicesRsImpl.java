@@ -1,6 +1,11 @@
 package impl.tew.business.resteasy;
 
 import java.util.List;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.core.MediaType;
+
 import com.tew.business.resteasy.AlumnosServicesRs;
 import com.tew.business.exception.EntityAlreadyExistsException;
 import com.tew.business.exception.EntityNotFoundException;
@@ -14,6 +19,8 @@ public class AlumnosServicesRsImpl implements AlumnosServicesRs {
 	}
 
 	@Override
+	@POST
+	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public void saveAlumno(Alumno alumno) throws EntityAlreadyExistsException {
 		new AlumnosAlta().save(alumno);
 	}
