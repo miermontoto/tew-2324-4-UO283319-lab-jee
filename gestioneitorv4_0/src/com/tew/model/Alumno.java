@@ -20,6 +20,8 @@ public class Alumno implements Serializable {
 		this.id = id; this.nombre = nombre; this.apellidos = apellidos;
 		this.iduser = iduser; this.email = email;
 	}
+	
+	public Alumno() {}
 
 	@XmlElement
 	public String getNombre() {
