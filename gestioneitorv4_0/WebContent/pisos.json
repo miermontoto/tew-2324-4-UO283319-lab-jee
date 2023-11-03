@@ -1,0 +1,31 @@
+{
+	"pisos": [
+		{
+			"id": 1,
+			"direccion": "Calle Mayor 1",
+			"ciudad": "Madrid",
+			"precio": 100000,
+			"habitaciones": 2,
+			"baños": 1,
+			"metros_cuadrados": 60
+		},
+		{
+			"id": 2,
+			"direccion": "Calle Alcala 100",
+			"ciudad": "Madrid",
+			"precio": 200000,
+			"habitaciones": 3,
+			"baños": 2,
+			"metros_cuadrados": 90
+		},
+		{
+			"id": 3,
+			"direccion": "Calle Gran Via 500",
+			"ciudad": "Barcelona",
+			"precio": 300000,
+			"habitaciones": 4,
+			"baños": 2,
+			"metros_cuadrados": 120
+		}
+	]
+}
