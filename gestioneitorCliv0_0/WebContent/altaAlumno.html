@@ -7,75 +7,24 @@
 </head>
 <body>
     <header>
-        <h1>Tecnologías Web</h1>
+        <h1>Alta alumno</h1>
+        <time datetime="2014-09-14">Septiembre 14th, 2014</time>
     </header>
 
-    <nav>
-        <ul>
-            <li>Alumnos
-                <ul>
-                    <li><a href="#altaAlumno">Alta</a></li>
-                    <li><a href="#bajaAlumno">Baja</a></li>
-                    <li><a href="#edicionAlumno">Edicion</a></li>
-                    <li><a href="#listadoAlumnos">Listado</a></li>
-                    <li><a href="#matricularAsignaturas">Matricular Asignaturas</a></li>
-                    <li><a href="#desmatricularAsignaturas">Quitar Asignaturas</a></li>
-                </ul>
-            </li>
-            <li>Asignaturas
-                <ul>
-                    <li><a href="#altaAsignatura">Alta</a></li>
-                    <li><a href="#bajaAsignatura">Baja</a></li>
-                    <li><a href="#edicionAsignatura">Edicion</a></li>
-                    <li><a href="#listadoAsignatura">Listado</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Calificaciones</a></li>
-            <li>Sesión
-                <ul>
-                    <li><a href="./login.html">Login</a></li>
-                    <li><a href="#logout">Logout</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-
-    <main>
-        <section>
-            <h1>Alta alumno</h1>
-            <time datetime="2014-09-14">Septiembre 14th, 2014</time>
-        </section>
-
-        <section>
-            <p>Datos para un nuevo alumno:</p>
-            <form id="altaAlumno" action="#" method="post">
-                <label for="username">Login:</label>
-                <input type="text" name="username" id="username" size="25">
-                <label for="passwd">Contraseña:</label>
-                <input type="password" name="passwd" id="passwd" size="25">
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" id="nombre" size="25">
-                <label for="apellidos">Apellidos:</label>
-                <input type="text" name="apellidos" id="apellidos" size="25">
-                <input type="submit" name="submit" id="submit" value="Enviar">
-                <input type="reset" name="reset" id="reset" value="Reiniciar">
-            </form>
-        </section>
-    </main>
-
-    <aside>
-        <h2>Proyecto GestioneitorCli v0.0</h2>
-        <p>En este proyecto de partida para la asignatura se incluyen:</p>
-        <ol>
-            <li>Secciones básicas para estructurar el código de GestioneitorCli en HTML4.</li>
-        </ol>
-    </aside>
-
-    <footer>
-        <ul>
-            <li><a href="#">Casa</a></li>
-            <li><a href="#">Contacto</a></li>
-        </ul>
-    </footer>
+    <section>
+        <p>Datos para un nuevo alumno:</p>
+        <form id="altaAlumno" action="#" method="post">
+            <label for="username">Login:</label>
+            <input type="text" name="username" id="username" size="25">
+            <label for="passwd">Contraseña:</label>
+            <input type="password" name="passwd" id="passwd" size="25">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre" size="25">
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" name="apellidos" id="apellidos" size="25">
+            <input type="submit" name="submit" id="submit" value="Enviar">
+            <input type="reset" name="reset" id="reset" value="Reiniciar">
+        </form>
+    </section>
 </body>
 </html>
