@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>gestioneitorv1_1</name>
+	<name>gestioneitorv3_0</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -35,7 +35,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1697443300468</id>
+			<id>0</id>
 			<name></name>
 			<type>30</type>
 			<matcher>
