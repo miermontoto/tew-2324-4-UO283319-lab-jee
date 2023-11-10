@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejemplo sencillo de web service con RESTEasy</title>
+	<!-- Añadir Bootstrap CDN -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script type="text/javascript" src="http://localhost:8080/gestioneitorv5_0/rest-jsapi"></script>
+	<script type="text/javascript">
+		function solicitarDatosAlumnos() {
+			var alumnos = AlumnosServicesRs.getAlumnos();
+			var div = document.getElementById("contenido");
+			var tabla = "<table class='table'><thead><tr><th>Nombre</th><th>Apellidos</th><th>Email</th><th>ID</th></tr></thead><tbody>";
+
+			for (i in alumnos) {
+				tabla += "<tr><td>" + alumnos[i]["nombre"] + "</td><td>" + alumnos[i]["apellidos"] + "</td><td>" + alumnos[i]["email"] + "</td><td>" + alumnos[i]["iduser"] + "</td></tr>";
+			}
+
+			tabla += "</tbody></table>";
+			div.innerHTML = tabla;
+		}
+	</script>
+</head>
+<body onload="solicitarDatosAlumnos();">
+	<!-- Usar clases de Bootstrap para títulos -->
+	<h1 class="text-center my-4">Listado de alumnos</h1>
+	<div id="contenido" class="container" style="top:30px">
+		Resultado del servicio REST...
+	</div>
+</body>
+</html>
