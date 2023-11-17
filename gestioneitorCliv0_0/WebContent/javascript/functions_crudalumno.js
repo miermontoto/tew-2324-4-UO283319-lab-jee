@@ -51,3 +51,33 @@ function Model() {
 		return alumno;
 	}
 }
+
+// Clase que contiene la gestión de la capa Vista
+function View() {
+	// regeneración de la tabla html tblList con los datos disponibles en el parámetro lista.
+	this.list = function (lista) {
+		$("#tblList").html("");
+		$("#tblList").html( "<thead>" + "<tr>" + "<th></th>"
+		+ "<th>ID</th>" + "<th>IDUser</th>" + "<th>Nombre</th>"
+		+ "<th>Apellidos</th>" + "<th>Email</th>" + "</tr>"
+		+ "</thead>" + "<tbody>" + "</tbody>");
+		for (var i in lista) {
+			var alumno = lista[i];
+			$("#tblList tbody").append("<tr> <td>"
+			+ "<img src='icons/edit.png' class='btnEdit'/>"
+			+ "<img src='icons/delete.png' class='btnDelete'/> </td>"
+			+ "<td>" + alumno.id + "</td>" + "<td>" + alumno.iduser + "</td>"
+			+ "<td>" + alumno.nombre + "</td>" + "<td>" + alumno.apellidos + "</td>"
+			+ "<td>" + alumno.email + "</td></tr>");
+		}
+	}
+
+	// método que lee de frmCRUDAlumnos los datos de sus campos, retornando un objeto alumno con dichos campos.
+	this.loadAlumnoFromForm = function () {} // PENDIENTE DE IMPLEMENTAR
+
+	// método que carga en el formulario frmCRUDAlumnos los datos del alumno pasado como parámetro.
+	this.loadAlumnoInForm = function (alumno) {} // PENDIENTE DE IMPLEMENTAR
+
+	// método que retorna el id del alumno seleccionado mediante un icono o enlace de la celda.
+	this.getIdAlumno = function(celda) {} // PENDIENTE DE IMPLEMENTAR
+};
