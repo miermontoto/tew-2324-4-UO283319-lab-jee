@@ -64,16 +64,26 @@ function View() {
 		for (var i in lista) {
 			var alumno = lista[i];
 			$("#tblList tbody").append("<tr> <td>"
-			+ "<img src='icons/edit.png' class='btnEdit'/>"
-			+ "<img src='icons/delete.png' class='btnDelete'/> </td>"
-			+ "<td>" + alumno.id + "</td>" + "<td>" + alumno.iduser + "</td>"
-			+ "<td>" + alumno.nombre + "</td>" + "<td>" + alumno.apellidos + "</td>"
-			+ "<td>" + alumno.email + "</td></tr>");
+				+ "<img src='icons/edit.png' class='btnEdit'/>"
+				+ "<img src='icons/delete.png' class='btnDelete'/> </td>"
+				+ "<td>" + alumno.id + "</td>" + "<td>" + alumno.iduser + "</td>"
+				+ "<td>" + alumno.nombre + "</td>" + "<td>" + alumno.apellidos + "</td>"
+				+ "<td>" + alumno.email + "</td></tr>");
 		}
 	}
 
 	// método que lee de frmCRUDAlumnos los datos de sus campos, retornando un objeto alumno con dichos campos.
-	this.loadAlumnoFromForm = function () {} // PENDIENTE DE IMPLEMENTAR
+	this.loadAlumnoFromForm = function () {
+		// Cogemos el alumno nuevo del formulario.
+		var alumno = {
+			id : $("#id").val(),
+			iduser : $("#iduser").val(),
+			nombre : $("#nombre").val(),
+			apellidos : $("#apellidos").val(),
+			email : $("#email").val()
+		};
+		return alumno;
+	}
 
 	// método que carga en el formulario frmCRUDAlumnos los datos del alumno pasado como parámetro.
 	this.loadAlumnoInForm = function (alumno) {} // PENDIENTE DE IMPLEMENTAR
