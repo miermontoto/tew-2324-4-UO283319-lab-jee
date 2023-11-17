@@ -86,7 +86,15 @@ function View() {
 	}
 
 	// método que carga en el formulario frmCRUDAlumnos los datos del alumno pasado como parámetro.
-	this.loadAlumnoInForm = function (alumno) {} // PENDIENTE DE IMPLEMENTAR
+	this.loadAlumnoInForm = function (alumno) {
+		// Pintamos los datos alumnos sobre el formularios de alta/edición
+		$("#id").val(alumno.id);
+		$("#iduser").val(alumno.iduser);
+		$("#nombre").val(alumno.nombre);
+		$("#apellidos").val(alumno.apellidos);
+		$("#email").val(alumno.email);
+		$("#iduser").focus(); // Ponemos el foco en el campo Nombre.
+	}
 
 	// método que retorna el id del alumno seleccionado mediante un icono o enlace de la celda.
 	this.getIdAlumno = function(celda) {} // PENDIENTE DE IMPLEMENTAR
