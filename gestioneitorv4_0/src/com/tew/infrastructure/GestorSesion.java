@@ -1,8 +1,12 @@
 package com.tew.infrastructure;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
 public class GestorSesion {
 	private static GestorSesion instance;
-	private Map<String, String> logins = new HashMap<>();
+	private Map<String, String> logins = new HashMap<String, String>();
 
 	private GestorSesion() {}
 

@@ -1,5 +1,9 @@
 package com.tew.business.resteasy;
 
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+
+import com.tew.model.User;
 
 @Path("/LoginServiceRs")
 public interface LoginServiceRs {
